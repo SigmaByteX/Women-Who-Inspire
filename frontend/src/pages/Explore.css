@@ -1,0 +1,113 @@
+.explore {
+  min-height: 80vh;
+}
+
+.explore-header {
+  background: linear-gradient(135deg, var(--purple-700), var(--purple-900));
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.explore-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: white;
+  font-weight: 700;
+}
+
+.explore-sub {
+  color: var(--purple-200);
+  margin-top: 0.5rem;
+}
+
+.explore-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.results-meta {
+  color: var(--gray-400);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-skeleton {
+  height: 420px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.no-results {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--gray-400);
+}
+.no-results-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+.no-results h3 { font-size: 1.5rem; color: var(--gray-600); margin-bottom: 0.5rem; }
+
+.error-banner {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.page-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: white;
+  border: 2px solid var(--gray-200);
+  color: var(--gray-600);
+  transition: var(--transition);
+}
+.page-btn:hover:not(:disabled) {
+  border-color: var(--purple-400);
+  color: var(--purple-600);
+}
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.page-numbers { display: flex; gap: 0.25rem; }
+.page-num {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  transition: var(--transition);
+}
+.page-num:hover { background: var(--purple-50); color: var(--purple-600); }
+.page-num.active {
+  background: var(--purple-600);
+  color: white;
+}
+
+@keyframes shimmer { to { background-position: -200% 0; } }

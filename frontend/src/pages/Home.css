@@ -1,0 +1,354 @@
+/* ── Hero ──────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--purple-900);
+  text-align: center;
+  padding: 4rem 2rem 6rem;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+}
+.hero-orb-1 {
+  width: 500px; height: 500px;
+  background: var(--purple-600);
+  top: -10%; left: -15%;
+  animation: float 8s ease-in-out infinite;
+}
+.hero-orb-2 {
+  width: 350px; height: 350px;
+  background: var(--rose-500);
+  bottom: 5%; right: -10%;
+  animation: float 10s ease-in-out infinite reverse;
+}
+.hero-orb-3 {
+  width: 250px; height: 250px;
+  background: #ec4899;
+  top: 40%; left: 60%;
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.4rem 1.25rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 2rem;
+  color: var(--purple-200);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(8px);
+  animation: fadeInDown 0.8s ease both;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.9s ease 0.1s both;
+}
+
+.hero-title-accent {
+  background: linear-gradient(135deg, var(--purple-300), var(--rose-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--purple-200);
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease 0.3s both;
+  margin-bottom: 3rem;
+}
+
+.hero-actions .btn-secondary {
+  color: white;
+  border-color: rgba(255,255,255,0.3);
+}
+.hero-actions .btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: white;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+
+.stat { text-align: center; }
+.stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--purple-300);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.15);
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--purple-300);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: fadeIn 1s 1s both;
+}
+.scroll-arrow {
+  animation: bounce 1.5s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ── Featured ──────────────────────────────────────────────────── */
+.featured-section {
+  padding: 5rem 2rem;
+  background: white;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-badge {
+  display: inline-block;
+  color: var(--purple-600);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--gray-900);
+}
+.section-sub {
+  color: var(--gray-400);
+  margin-top: 0.5rem;
+}
+
+.featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.featured-card:hover { transform: scale(1.01); }
+
+.featured-image-side {
+  position: relative;
+  min-height: 450px;
+}
+.featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.featured-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124,58,237,0.2), transparent);
+}
+
+.featured-info {
+  background: var(--purple-900);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.featured-field {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--purple-300);
+}
+.featured-name {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.1;
+}
+.featured-nationality { color: var(--purple-300); font-size: 0.85rem; }
+.featured-description {
+  color: var(--purple-200);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.featured-quote {
+  border-left: 3px solid var(--purple-500);
+  padding-left: 1rem;
+  color: var(--purple-200);
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.quote-mark { color: var(--rose-400); font-size: 1.5rem; line-height: 0; }
+
+.featured-skeleton {
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 450px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+/* ── Categories ─────────────────────────────────────────────────── */
+.categories-section {
+  padding: 5rem 2rem;
+  background: var(--gray-50);
+}
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.75rem 1rem;
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--gray-100);
+  transition: var(--transition);
+}
+.category-card:hover {
+  border-color: var(--cat-color);
+  background: color-mix(in srgb, var(--cat-color) 5%, white);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--cat-color) 20%, transparent);
+}
+.category-icon { font-size: 2rem; }
+.category-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-700);
+}
+
+/* ── CTA ────────────────────────────────────────────────────────── */
+.cta-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--purple-700) 0%, var(--purple-900) 100%);
+  text-align: center;
+}
+.cta-content h2 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+.cta-content p {
+  color: var(--purple-200);
+  margin-bottom: 2rem;
+}
+
+/* ── Animations ─────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-image-side { min-height: 280px; }
+  .featured-info { padding: 2rem 1.5rem; }
+  .featured-name { font-size: 1.8rem; }
+  .hero-stats { gap: 1.5rem; }
+}
